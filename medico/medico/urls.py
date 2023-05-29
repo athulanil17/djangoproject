@@ -20,6 +20,6 @@ from django.urls import path,include
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('',include('mediapp.urls')),
-    #path('mediappAPI/',include('mediappAPI.urls'))
+    path('medicoAPI/',include('medicoAPI.urls'))
 
 ]
