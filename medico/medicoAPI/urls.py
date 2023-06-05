@@ -2,10 +2,10 @@ from django.urls import path
 from .views import Signupuser, Loginuser, Logout, MedicineList, MedicineDetail,CreateMedicine
 
 urlpatterns = [
-    path('signup/', Signupuser.as_view(), name='signup'),
-    path('login/', Loginuser.as_view(), name='login'),
-    path('logout/', Logout.as_view(), name='logout'),
-    path('medicines/', MedicineList.as_view(), name='medicine-list'),
-    path('medicines/create/', CreateMedicine.as_view(), name='create-medicine'),
-    path('medicines/<int:pk>/', MedicineDetail.as_view(), name='medicine-detail'),
+    path('apisignup/', Signupuser.as_view(), name='apisignup'),
+    path('apilogin/', Loginuser.as_view(), name='apilogin'),
+    path('apilogout/', Logout.as_view(), name='apilogout'),
+    path('apimedicines/', MedicineList.as_view(), name='apimedicinelist'),
+    path('apimedicines/create/', CreateMedicine.as_view(), name='apicreatemedicine'),
+    path('apimedicines/<int:pk>/', MedicineDetail.as_view(), name='apimedicinedetail'),
 ]

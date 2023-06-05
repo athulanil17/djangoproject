@@ -46,11 +46,11 @@ def logoutuser(request):
     logout(request)
     return redirect(reverse('login'))
 
-@login_required
+@login_required(login_url="login")
 def home(request):
     return render(request,'home.html')
 
-@login_required
+@login_required(login_url="login")
 def add_medicine(request):
     if request.method == 'POST':
         name = request.POST['name']
@@ -66,7 +66,7 @@ def add_medicine(request):
         return redirect('medicine_list')
     return render(request, 'addmedicine.html')
 
-@login_required
+@login_required(login_url="login")
 def edit_medicine(request, medicine_id):
     medicine = get_object_or_404(Medicine, id=medicine_id, user=request.user)
     if request.method == 'POST':
@@ -79,7 +79,7 @@ def edit_medicine(request, medicine_id):
         return redirect('medicine_list')
     return render(request, 'editmedicine.html', {'medicine': medicine})
 
-@login_required
+@login_required(login_url="login")
 def delete_medicine(request, medicine_id):
     medicine = get_object_or_404(Medicine, id=medicine_id, user=request.user)
     if request.method == 'POST':
@@ -92,7 +92,7 @@ def medicine_list(request):
     listmedicines = Medicine.objects.filter(user=request.user)
     return render(request, 'medicinelist.html', {'listmedicines': listmedicines})
 
-@login_required
+@login_required(login_url="login")
 def search_medicine(request):
     query = request.GET.get('query')
     if query:
